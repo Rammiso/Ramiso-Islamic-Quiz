@@ -444,7 +444,7 @@ progress {
     gap: 0.6rem;
     padding: 1rem;
     border-radius: 1.2rem;
-    position: static;
+    position: fixed;
   }
 
   .app-header img {
@@ -461,6 +461,7 @@ progress {
     height: auto;
     padding: 2rem 2rem 2rem 2rem;
     margin-top: 2rem;
+    margin-bottom: 3rem;
     box-shadow: none;
   }
 

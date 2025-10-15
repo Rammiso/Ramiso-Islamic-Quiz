@@ -1,0 +1,147 @@
+[
+  {
+    "id": 1,
+    "question": "Which city served as the capital of the Umayyad Caliphate?",
+    "options": ["Baghdad", "Damascus", "Cairo", "Medina"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "question": "Which direction do Muslims face during prayer?",
+    "options": ["East", "West", "Toward Mecca", "North"],
+    "answerIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "question": "Which month is known for fasting in the Islamic calendar?",
+    "options": ["Sha'ban", "Ramadan", "Rajab", "Dhul-Hijjah"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "question": "Which structure in Mecca do Muslims circle during pilgrimage?",
+    "options": [
+      "The Dome of the Rock",
+      "Kaaba",
+      "Masjid Al-Aqsa",
+      "Green Dome"
+    ],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "question": "Which city is known as the birthplace of Islam?",
+    "options": ["Medina", "Mecca", "Jerusalem", "Baghdad"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "question": "Which city was home to the famous House of Wisdom?",
+    "options": ["Córdoba", "Baghdad", "Cairo", "Damascus"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "question": "What is the Islamic calendar based on?",
+    "options": ["Solar year", "Lunar year", "Solar-lunar hybrid", "Seasons"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "question": "What is the name of the major festival after Ramadan?",
+    "options": ["Eid al-Fitr", "Eid al-Adha", "Ashura", "Laylat al-Qadr"],
+    "answerIndex": 0,
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "question": "Which empire followed the Umayyad Caliphate?",
+    "options": ["Abbasid", "Ottoman", "Fatimid", "Mamluk"],
+    "answerIndex": 0,
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "question": "Which language was widely used by scholars during the Islamic Golden Age?",
+    "options": ["Latin", "Greek", "Arabic", "Persian"],
+    "answerIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "question": "Who was known as the founder of algebra?",
+    "options": ["Ibn Sina", "Al-Khwarizmi", "Al-Biruni", "Ibn Rushd"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "question": "Which famous city in Spain was a center of learning under Muslim rule?",
+    "options": ["Granada", "Madrid", "Córdoba", "Barcelona"],
+    "answerIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "question": "Which Islamic dynasty built the Alhambra palace?",
+    "options": ["Umayyad", "Ottoman", "Nasrid", "Abbasid"],
+    "answerIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "question": "What is the name of the pilgrimage to Mecca?",
+    "options": ["Umrah", "Hajj", "Zakat", "Salah"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 15,
+    "question": "Which river flows through Baghdad?",
+    "options": ["Euphrates", "Jordan", "Nile", "Tigris"],
+    "answerIndex": 3,
+    "difficulty": "easy"
+  },
+  {
+    "id": 16,
+    "question": "Which Islamic scholar is famous for his medical encyclopedia 'The Canon of Medicine'?",
+    "options": ["Ibn Sina", "Al-Razi", "Ibn Khaldun", "Al-Battani"],
+    "answerIndex": 0,
+    "difficulty": "easy"
+  },
+  {
+    "id": 17,
+    "question": "Which dynasty ruled the Ottoman Empire?",
+    "options": ["Seljuk", "Ottoman", "Abbasid", "Mamluk"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "question": "Which sea borders the Arabian Peninsula to the west?",
+    "options": ["Arabian Sea", "Red Sea", "Persian Gulf", "Mediterranean Sea"],
+    "answerIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "question": "What is the main language of the Qur’an?",
+    "options": ["Arabic", "Persian", "Urdu", "Aramaic"],
+    "answerIndex": 0,
+    "difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "question": "Which city became the Ottoman capital after Bursa?",
+    "options": ["Istanbul", "Damascus", "Cairo", "Baghdad"],
+    "answerIndex": 0,
+    "difficulty": "easy"
+  }
+]

@@ -1,13 +1,571 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-darkest: #1a1a1a;
+  --color-dark: #495057;
+  --color-medium: #dee2e6;
+  --color-light: #f8fafc;
+
+  /* Vibrant accent colors */
+  --color-theme: #22c55e;
+  --color-accent: #f97316;
+
+  --background-gradient: linear-gradient(135deg, #a0a0a1, #d7dde8);
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --neon-glow: 0 0 12px rgba(34, 197, 94, 0.5);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 🌙 DARK MODE - Neon and Glass */
+[data-theme="dark"] {
+  --color-darkest: #f1f5f9;
+  --color-dark: #cbd5e1;
+  --color-medium: #334155;
+  --color-light: #0f172a;
+
+  --color-theme: #4ade80; /* mint green glow */
+  --color-accent: #fb923c; /* warm orange glow */
+
+  --background-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+  --glass-bg: #0f172a;
+  --shadow-color: rgba(255, 255, 255, 0.06);
+  --neon-glow: 0 0 15px rgba(74, 222, 128, 0.5);
+
+  background-color: var(--color-light);
+  color: var(--color-darkest);
+}
+
+/* === GLOBAL === */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background-gradient);
+  color: var(--color-darkest);
+  padding: 2rem;
+  transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* === LAYOUT === */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: min(90%, 60rem);
+  margin-inline: auto;
+  padding: 0rem 0rem 0.4rem 5rem;
+}
+/* === HEADER === */
+.app-header {
+  width: 100%;
+  height: 15rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  /* background: rgba(255, 255, 255, 0.6); */
+  background: linear-gradient(135deg, #f9f9f9, #cdcfd4);
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  border-radius: 2rem;
+  padding: 0rem 1rem;
+  color: #fb923c;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  backdrop-filter: blur(10px);
+}
+[data-theme="dark"] .app-header {
+  background: rgba(15, 23, 42, 0.6); /* optional slightly darker glass effect */
+}
+
+img {
+  width: 12rem;
+}
+
+h1 {
+  font-size: 5.5rem;
+  font-weight: 800;
+
+  background-color: var(--color-theme);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--neon-glow);
+}
+h2 {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+h4 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+  text-align: center;
+}
+
+.start {
+  margin-top: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress {
+  margin-top: 18rem;
+  margin-bottom: 4rem;
+
+  display: grid;
+  justify-content: space-between;
+  gap: 1.2rem;
+  grid-template-columns: auto auto;
+  font-size: 1.8rem;
+  color: var(--color-darkest);
+}
+
+progress {
+  -webkit-appearance: none;
+  margin-top: 2rem;
+  margin-left: -1.5rem;
+  width: 100%;
+  height: 12px;
+  grid-column: 1 / -1;
+}
+
+::-webkit-progress-bar {
+  background-color: var(--color-medium);
+  border-radius: 100px;
+}
+::-webkit-progress-value {
+  background-color: var(--color-theme);
+  border-radius: 100px;
+}
+/* === BUTTONS === */
+.btn {
+  display: block;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-darkest);
+  background: var(--color-theme);
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+}
+
+.btn-ui {
+  background: var(--color-medium);
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+  float: right;
+  /* margin-right: 5rem; */
+}
+
+.btn-ui:hover {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+}
+
+.btn:not([disabled]):hover {
+  background-color: #8a8989;
+  font-weight: 600;
+  box-shadow: #495057;
+}
+
+.btn-option:not([disabled]):hover {
+  transform: translateX(1.7rem);
+}
+
+/* === QUIZ OPTIONS === */
+
+.options {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 3.2rem;
+}
+
+.btn-option {
+  width: 90%;
+  text-align: left;
+  background: var(--glass-bg);
+  border: 1px solid var(--color-medium);
+  color: var(--color-darkest);
+  padding: 1.4rem 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.btn-option:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-option.correct {
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-option.wrong {
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+}
+
+/* === PROGRESS === */
+/* progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-medium);
+} */
+.progress {
+  margin-bottom: 4rem;
+  /* width: 80%; */
+  display: grid;
+  justify-content: space-between;
+  gap: 1.2rem;
+  grid-template-columns: auto auto;
+  font-size: 1.8rem;
+  /* color: var(--color-medium); */
+}
+
+progress {
+  -webkit-appearance: none;
+  align-self: center;
+  width: 100%;
+  height: 12px;
+  grid-column: 1 / -1;
+}
+
+::-webkit-progress-value {
+  background: linear-gradient(
+    to right,
+    var(--color-theme),
+    var(--color-accent)
+  );
+  transition: width 0.4s ease;
+}
+.answer {
+  transform: translateX(2rem);
+}
+
+.error {
+  margin-top: 20rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 2rem;
+  background-color: #495057;
+  border-radius: 100px;
+}
+
+/* === RESULT BOX === */
+
+.result {
+  margin-top: 26rem;
+  background-color: var(--color-theme);
+  color: var(--color-light);
+  border-radius: 100px;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  width: 100%;
+  align-self: center;
+}
+
+.result span {
+  font-size: 2.2rem;
+  margin-right: 4px;
+}
+
+.highscore {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 1.6rem;
+
+  color: var(--color-medium);
+  font-size: 1.4rem;
+}
+
+.loader {
+  width: 50px;
+  height: 24px;
+  background: radial-gradient(circle closest-side, currentColor 90%, #0000) 0%
+      50%,
+    radial-gradient(circle closest-side, currentColor 90%, #0000) 50% 50%,
+    radial-gradient(circle closest-side, currentColor 90%, #0000) 100% 50%;
+  background-size: calc(100% / 3) 12px;
+  background-repeat: no-repeat;
+  animation: loader 1s infinite linear;
+}
+
+@keyframes loader {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 6rem;
+}
+
+.counter * {
+  font-size: inherit;
+  padding: 0.8rem;
+}
+
+.question-statement {
+  height: 4rem;
+  margin-bottom: 4rem;
+  width: 80%;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* === DARK MODE GLASS EFFECT === [data-theme="dark"] .app-header*/
+[data-theme="dark"] .main {
+  background: var(--glass-bg);
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.1);
+  backdrop-filter: blur(15px);
+}
+[data-theme="dark"] .app-header {
+  background: rgb(255, 255, 255); /* keep same glass or slightly dark */
+}
+
+/* === ANIMATION === */
+@keyframes glow {
+  0% {
+    box-shadow: var(--neon-glow);
+  }
+  100% {
+    box-shadow: 0 0 25px var(--neon-glow);
+  }
+}
+/* footer {
+  display: flex;
+  justify-content: space-around;
+  gap: 30rem;
+} */
+
+/* .main,
+.start,
+.progress,
+.result {
+  margin-top: 18rem; /* equals header height (15rem) + spacing */
+*/
+
+/* === LAYOUT FIX PATCH === */
+.main {
+  width: min(90%, 60rem);
+  height: 90vh;
+  margin: 18rem auto s6rem auto;
+  padding: 5rem;
+  border-radius: 1.2rem;
+  background: var(--glass-bg);
+  box-shadow: 0 6px 20px var(--shadow-color);
+  backdrop-filter: blur(10px);
+}
+
+.options {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.2rem;
+}
+
+[data-theme="dark"] .app-header {
+  background: rgba(15, 23, 42, 0.7);
+}
+[data-theme="dark"] .app-header img {
+  background: rgb(255, 255, 255);
+  border-radius: 2rem;
+}
+.next {
+  margin-top: 1rem;
+  /* margin-left: -8rem; */
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* 📱 Small phones (max 480px) */
+@media (max-width: 480px) {
+  html {
+    font-size: 55%; /* make text slightly smaller */
+  }
+
+  body {
+    padding: 1rem;
+  }
+
+  .app-header {
+    flex-direction: column;
+    height: auto;
+    gap: 0.6rem;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    position: static; /* let it scroll normally on small devices */
+  }
+
+  .app-header img {
+    width: 8rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .main {
+    width: 100%;
+    height: auto;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    box-shadow: none;
+  }
+
+  .options {
+    width: 100%;
+    padding: 0;
+    gap: 1rem;
+  }
+
+  .btn-option {
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 1.2rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .result {
+    width: 100%;
+    border-radius: 1rem;
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    padding: 1.5rem;
+  }
+
+  .progress {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* 📱 Tablets (481px–768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 58%;
+  }
+
+  .app-header {
+    padding: 1rem 2rem;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .main {
+    width: 95%;
+    padding: 3rem 2rem;
+  }
+
+  .btn-option {
+    font-size: 1.8rem;
+  }
+
+  .result {
+    margin-top: 26rem;
+  }
+}
+
+/* 💻 Larger screens (above 1024px) */
+@media (min-width: 1024px) {
+  .main {
+    width: min(80%, 70rem);
+  }
 }

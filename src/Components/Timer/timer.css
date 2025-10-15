@@ -1,12 +1,10 @@
 .timer {
   float: left;
-  /* margin-right: 10rem; */
+
   font-size: 1.8rem;
   color: var(--color-darkest);
   border: 2px solid var(--color-dark);
   padding: 1.35rem 2.8rem;
   border-radius: 100px;
   margin-top: 0.7rem;
-  /* position: fixed; */
-  /* left: 2rem; */
 }
